@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+
+  </style>
+  <title></title>
+</head>
+
+<body>
+  <input type="text" name="" value="" placeholder="rock,paper,sicssor,spock,lizzard">
+  <p>output</p>
+  <span>Win or Lose</span>
+  <button type="button" name="button">Random Throw</button>
+  <script type="text/javascript">
+    document.querySelector("button").addEventListener("click", function() {
+      randomThrow()
+
+      function randomThrow() {
+        let inputValue = document.querySelector('input').value
+
+        console.log(inputValue + "   player")
+        let randomChoice = Math.random()
+        if (randomChoice < .2) {
+          document.querySelector("p").innerHTML = "spock"
+        } else if (randomChoice < .4) {
+          document.querySelector("p").innerHTML = "rock"
+        } else if (randomChoice < .6) {
+          document.querySelector("p").innerHTML = "paper"
+        } else if (randomChoice < .8) {
+          document.querySelector("p").innerHTML = "scissor"
+        } else if (randomChoice < 1) {
+          document.querySelector("p").innerHTML = "lizzard"
+        }
+        let comp = document.querySelector("p").innerHTML
+        console.log(comp + "   computer")
+        if (inputValue == comp) {
+          document.querySelector('span').innerHTML = "tie"
+        } else if (inputValue == "rock" && comp == "paper" || comp == "spock") {
+          document.querySelector("span").innerHTML = "Lose"
+        } else if (inputValue == "paper" && comp == "rock" || comp == "spock") {
+          document.querySelector("span").innerHTML = "Win"
+        } else if (inputValue == "scissor" && comp == "paper" || comp == "lizzard") {
+          document.querySelector("span").innerHTML = "Win"
+        } else if (inputValue == "paper" && comp == "scissor" || comp == "lizzard") {
+          document.querySelector("span").innerHTML = "lose"
+        } else if (inputValue == "rock" && comp == "scissor" || comp == "lizzard") {
+          document.querySelector("span").innerHTML = "win"
+        } else if (inputValue == "scissor" && comp == "rock" || comp == "spock") {
+          document.querySelector("span").innerHTML = "lose"
+        } else if (inputValue == "spock" && comp == "lizzard" || comp == "paper") {
+          document.querySelector("span").innerHTML = "lose"
+        } else if (inputValue == "spock" && comp == "rock" || comp == "sicssor") {
+          document.querySelector("span").innerHTML = "Win"
+        } else if (inputValue == "lizzard" && comp == "spock" || comp == "paper") {
+          document.querySelector("span").innerHTML = "Win"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
